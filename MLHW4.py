@@ -67,7 +67,7 @@ for times in range(1,10):
   w1=matrix(t,arr)
   plot(times)
 
-"""----------error_rms traning data--------"""
+"""----------error_rms training data--------"""
 w1=[]
 error_rms=[]
 for M in range(1,10):
@@ -81,7 +81,7 @@ for M in range(1,10):
    error_rms.append(np.sqrt(error/20))
 y1=error_rms
 
-"""-----------error_rms testing data------------"""
+"""-----------error_rms test data------------"""
 w2=[]
 error_rms2=[]
 for M in range(1,10):
@@ -130,7 +130,6 @@ def l2(i):
   w4=np.dot(np.dot(np.linalg.inv(np.dot(ot,o)+exp(i)*np.eye(10)),ot),np.vstack(t2))
   l2=np.sqrt(new_rms(b,i,w4)/10)
   return l2
-print(l2(-20))
 """----------------------"""
 ll=np.linspace(-20,0, 100)
 y3=[]
