@@ -1,7 +1,6 @@
 # -*- coding: utf-8 -*-
 """
 Spyder Editor
-
 This is a temporary script file.
 """
 from scipy.io import loadmat
@@ -86,8 +85,8 @@ w2=[]
 error_rms2=[]
 for M in range(1,10):
    error2=0
-   arr2=x_arr(x2,M)
-   w2=matrix(t2,arr2)
+   arr2=x_arr(x,M)
+   w2=matrix(t,arr2)
    for i in range(0,10): 
       error2=error2+(summation(x2[i],M,w2)-t2[i])**2
    if M==9:
@@ -125,10 +124,10 @@ def l1(i):
 
 """------testing---------"""
 def l2(i):
-  ot=np.vstack(arr2)
-  o=np.vstack(arr2).transpose()
-  w4=np.dot(np.dot(np.linalg.inv(np.dot(ot,o)+exp(i)*np.eye(10)),ot),np.vstack(t2))
-  l2=np.sqrt(new_rms(b,i,w4)/10)
+  ot=np.vstack(arr)
+  o=np.vstack(arr).transpose() 
+  w3=np.dot(np.dot(np.linalg.inv(np.dot(ot,o)+exp(i)*np.eye(10)),ot),np.vstack(t))
+  l2=np.sqrt(new_rms(b,i,w3)/10)
   return l2
 """----------------------"""
 ll=np.linspace(-20,0, 100)
@@ -144,12 +143,6 @@ plt.plot(ll, np.vstack(y4),'-')
 plt.xlabel('lnλ')
 plt.ylabel('ERMS')
 plt.show()
-
-
-
-
-
-
 
 
 
