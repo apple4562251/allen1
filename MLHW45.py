@@ -57,6 +57,12 @@ for k in range(0,150):
 o=np.vstack(p1[0:40])
 ot=np.vstack(p1[0:40]).transpose()
 t=T1[0:40]
+e=np.dot(ot,t)
+w=np.dot(ot,o)
+
+h=np.eye(5)
+print(np.linalg.inv(w))
+
 """--------error function---------"""
 w1=matrix(T1[0:40],p1[0:40])
 w2=matrix(T1[50:90],p1[50:90])
@@ -251,5 +257,6 @@ print("training set",M3(100,140,w7,p5))
 print("(1,2,3)")
 w7=matrix3(T1[100:140],p6[100:140])
 print("training set",M3(100,140,w7,p6))     
+
 
     
