@@ -7,35 +7,14 @@ p=im2double(p);
 %--------程羬干畉-----%
 gridx=(orow-1)/(nrow-1);
 gridy=(ocol-1)/(ncol-1);
-% for  i=1:nrow
-%     for j=1:ncol
-%        nearest(i,j)=p(round(1+(i-1)*gridx),round(1+(j-1)*gridy));
-%     end
-% end
-% 
-% imtool(nearest)
-% ---------------------%
-% ceil(x) 秈
-% floor(x) 癶
-% for  i=1:nrow
-%     for j=1:ncol
-%        lu=p(floor(1+(i-1)*gridx),floor(1+(j-1)*gridy));    %オ(x1,y2)   x2=ceil(1+(j-1)*gridy)
-%        ru=p(floor(1+(i-1)*gridx),ceil(1+(j-1)*gridy));     %(x2,y2)   x1=floor(1+(j-1)*gridy)
-%        ld=p(ceil(1+(j-1)*gridx),floor(1+(j-1)*gridy));     %オ(x1,y1)   y2=floor(1+(i-1)*gridx)
-%        rd=p(ceil(1+(i-1)*gridx),ceil(1+(j-1)*gridy));      %(x1,y2)   y1=ceil(1+(i-1)*gridx)
-%        x1=floor(1+(j-1)*gridy);
-%        x2=ceil(1+(j-1)*gridy);
-%        y1=ceil(1+(i-1)*gridx);
-%        y2=floor(1+(i-1)*gridx);
-%        x=(1+(j-1)*gridy);
-%        y=(1+(i-1)*gridx);
-%        f1=((x2-x)/(x2-x1))*lu+((x-x1)/(x2-x1))*ru;
-%        f2=((x2-x)/(x2-x1))*ld+((x-x1)/(x2-x1))*rd;
-%        nearest(i,j)=((y2-y)/(y2-y1))*f2+((y-y1)/(y2-y1))*f1;
-%     end
-% end
-% imtool(nearest)
-%-------------------%
+for  i=1:nrow
+    for j=1:ncol
+       nearest(i,j)=p(round(1+(i-1)*gridx),round(1+(j-1)*gridy));
+    end
+end
+figure(1);imshow(nearest)
+figure(1);title('程羬干畉')
+% ------bilinear----------%
 for  i=1:nrow
     for j=1:ncol
        x=1+(i-1)*gridx;
@@ -55,7 +34,8 @@ for  i=1:nrow
        nearest(i,j)=a*(x-x1)+b*(y-y1)+c*(x-x1)*(y-y1)+d;
     end
 end
-imtool(nearest)
+figure(2);imshow(nearest)
+figure(2);title('蛮絬┦础干')
 
 
 
